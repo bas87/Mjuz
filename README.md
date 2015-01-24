@@ -1,2 +1,2 @@
 # Mju:z
-Mju:z is web client for music on console
+Mju:z is web client for music on console (mocp)
