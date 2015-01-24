@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="web/assets/img/favicon.ico">
+
+    <title>Mjuːz - music on web</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="web/assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        body {
+            padding-top: 70px;
+        }
+        .player {
+            margin-top: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#list">Mjuːz</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" ng-controller="HeaderCtrl">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{ active: isActive('/list')}"><a href="#list">Library</a></li>
+                    <li ng-class="{ active: isActive('/play-list')}"><a href="#play-list">Play List</a></li>
+                </ul>
+                <form class="nav navbar-nav navbar-right player" ng-controller="PlayerCtrl">
+                    <span class="label label-success ng-binding">{{state.State}}</span>
+                    <button ng-click="play()" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                    <button ng-click="stop()" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
+                    <button ng-click="pause()" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></button>
+                    <button ng-click="prev()" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button>
+                    <button ng-click="next()" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
+                </form>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <div class="jumbotron">
+
+            <div ng-view></div>
+
+        </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="web/assets/js/jquery/jquery.js"></script>
+    <script src="web/assets/js/bootstrap/bootstrap.js"></script>
+    <script src="web/assets/js/angular/angular.js"></script>
+    <script src="web/assets/js/angular/angular-route.js"></script>
+    <script src="web/assets/js/angular/angular-readable-time.js"></script>
+    <script src="web/assets/js/angular/angular-base64.js"></script>
+    <script src="web/app/app.js"></script>
+    <script src="web/app/components/library/library.js"></script>
+    <script src="web/app/components/play-list/play-list.js"></script>
+</body>
+
+</html>
